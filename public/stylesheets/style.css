@@ -1,0 +1,1109 @@
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(/stylesheets/FoundrySterlingBook.ttf);
+}
+@font-face {
+    font-family: mySecondFont;
+    src: url(/stylesheets/FoundrySterlingDemiOSF.ttf);
+}
+
+body {
+    font-family: myFirstFont;
+}
+a {
+    cursor: pointer;
+}
+
+.container-fluid{
+    padding-left: 0px;
+    padding-right :0px;
+}
+.listInHeader{
+    list-style: none;
+}
+.secondDivInHeader{
+    background: #3c8a2e;
+    text-align: center;
+    padding: 8px;
+}
+.inputInHeader{
+    height: 43px;
+    width: 65%;
+    padding-top: 28px;
+    padding-left: 13px;
+    border-width: 1px;
+    border-radius: 2px;
+}
+.mobviewHRStyle{
+    display: inline;
+}
+.Borderstyle{
+  border: 1px solid #EAEAEA;
+  width: 100%;
+  box-shadow: 1px 1px 5px #999;
+  background: white;
+  border-radius: 5px;
+}
+.Borderstyle1{
+  border: 1px solid #EAEAEA;
+  
+}
+.currentlyHeader{
+    font-family: mySecondFont;
+    /*font-size: 16pt;*/
+    color: #000000;
+}
+.currentlySecondHeader{
+    font-family: myFirstFont;
+    /*font-size: 38pt;*/
+    color: #3c8a2e;
+}
+.RouteTableHeaderText{
+    font-family: mySecondFont;
+    color:#646464;
+}
+.currentRouteStopsHeader{
+    background: #666666;
+    color: #ffffff;
+    font-family: mySecondFont;
+
+}
+
+#ImageOnMap{
+    border-left: 1px solid white;    padding-left: 5px;padding-right: 39px;
+}
+.mainRow{
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+#map_div {
+    height: 480px;
+}
+.democlass {
+    color: red;
+}
+#truckIcon{
+    background: #3C8A2E;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 5px;
+    border: #7F7F7F solid 1px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    height: 60px;
+    width: 230px;
+     margin-left: 0px;
+    margin-right: 0px;
+}
+#checkboxSTyle{
+    margin-left: 15%;font-weight: bold;
+    font-size: 25px;
+}
+.gm-style img {
+    max-width: none;
+    
+}
+.TRUCKimgStyle{
+    width: 80%;    
+    margin-top: 36%;
+}
+.TRUCKimgStyle1{
+    float: right;
+    position: absolute; 
+    width: 35%; 
+    top: -23%;
+}
+.eye{
+    float: right;
+    top: -30px;
+    right: 10px;
+}
+.form-control{
+    padding-left: 35px;
+    background: black;
+    color: white;
+    border-radius: 2px;
+    border: 1px solid #615D5D;
+    height: 40px;
+}
+.btn{
+    border-radius: 2px;
+    height: 40px;
+}
+.form-group {
+    margin-bottom: 0px;
+}
+.loginMain{
+    background: rgba(8, 8, 8, 0.85);
+    color: white;
+    /*height: 663px;*/
+    padding: 0px;
+
+}
+.loginMiandiv{
+    top: 100px;
+    left: 180px;
+}
+.sitehtmlcontentTruck{
+    background: green;
+    color: white;
+}
+.verticalLine {
+    border-left: thick solid white;
+}
+.sitehtmlcontenttruckdiv1{
+    color: white;
+    float: left;
+    background: green;
+}
+.sitehtmlcontenttruckdiv2{
+    color: white;
+    float: right;
+    background: green;
+}
+.gm-style-iw{
+
+
+}
+.dropdownButton{
+    width: 70%;
+    text-align: left;
+    height: 50px;
+}
+.dropdownCaret{
+    float: right;
+}
+.dropdown-menu{
+    width: 70%;
+    left: 200px;
+}
+.buttonSpanText{
+    font-size: 11px;
+    color: #999;
+}
+h2{
+    font-size: 20px;
+    margin-top: 11px;
+}
+.mapHeight{
+    display: block;
+    height: 85% ;
+    position: fixed;
+   /* top: 117px;*/
+    left: 0px;
+    width: 100%;
+    overflow: none;
+}
+.table>tbody>tr.success>td, .table>tbody>tr.success>th, .table>tbody>tr>td.success, .table>tbody>tr>th.success, .table>tfoot>tr.success>td, .table>tfoot>tr.success>th, .table>tfoot>tr>td.success, .table>tfoot>tr>th.success, .table>thead>tr.success>td, .table>thead>tr.success>th, .table>thead>tr>td.success, .table>thead>tr>th.success {
+    background-color: #e5e5e5;
+}
+.table>tbody>tr.warning>td, .table>tbody>tr.warning>th, .table>tbody>tr>td.warning, .table>tbody>tr>th.warning, .table>tfoot>tr.warning>td, .table>tfoot>tr.warning>th, .table>tfoot>tr>td.warning, .table>tfoot>tr>th.warning, .table>thead>tr.warning>td, .table>thead>tr.warning>th, .table>thead>tr>td.warning, .table>thead>tr>th.warning {
+    background-color: #d8e9c0;
+}
+
+
+#iw-container  .iw-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: #48b5e9;
+    color: white;
+    margin: 1px;
+    border-radius: 2px 2px 0 0;
+}
+.hrStyleInTable{
+    font-family: mySecondFont;
+    margin-top: 0px;
+    margin-bottom: 7px;
+    font-size: 11px;
+    padding-top: 2px;
+}
+
+.gm-style-iw {
+    width: 250px !important;
+    height: 70px;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: green;
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    border: 1px solid rgba(72, 181, 233, 0.6);
+    /*border-radius: 2px 2px 10px 10px; */
+}
+.iw-bottom-gradient {
+    position: absolute;
+    width: 326px;
+    height: 25px;
+    bottom: 10px;
+    right: 16px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+}
+#landingButton{
+    width:100%;
+}
+#over_map {
+    position: absolute;
+    top: 120px;
+    left: 16%;
+     margin-left: 7px;
+    z-index: 99;
+    background: white;
+    /*border: 1px solid #ccc;*/
+    border-radius: 2px;
+    padding: 10px;
+    padding-left: 0px;padding-right: 0px;padding-bottom: 0px;border-top-width: 0px;padding-top: 0px;
+}
+#over_map-bottom {
+    position: fixed;   
+    bottom: 0px;
+    left: 17%;
+    z-index: 99;
+    /*background: white;*/
+    border: 1px solid #ccc;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 12px;
+    padding: 10px;
+    padding-left: 0px;padding-right: 0px;padding-bottom: 0px;border-top-width: 0px;padding-top: 0px;
+    /*margin-left: -5px;*/
+    overflow-y: auto;
+    background: white;
+    width: 64.6667%;
+    box-shadow: 1px 1px 10px 0px #9d9d9d;
+}
+#over_map-bottomPagination {
+    position: absolute;
+     right: 18%;
+     top:355%; 
+     float: right;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #3C8A2E;
+    border-color: #EBE8DE;
+}
+.pagination>li>a, .pagination>li>span {   
+    color: #000000;   
+}
+#over_map-bottomButton {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 99;
+    background: white;
+    border: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 0px;
+    padding-left: 0px;padding-right: 0px;padding-bottom: 0px;border-top-width: 0px;padding-top: 0px;
+}
+#over_map-bottomSuccessButton{
+    position: fixed;
+    bottom: 35px;
+    left: 0px;
+    z-index: 99;
+    font-size: 12px;
+    padding: 10px;
+    padding-left: 0px;padding-right: 0px;padding-bottom: 0px;border-top-width: 0px;padding-top: 0px;
+}
+#over_map-topSuccessButton{
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    z-index: 99;
+    font-size: 12px;
+    padding: 10px;
+    padding-left: 0px;padding-right: 0px;padding-bottom: 0px;border-top-width: 0px;padding-top: 0px;
+}
+#over_map-bottomButton1 {
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    z-index: 99;
+    background: white;
+    border: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 15px;
+    padding: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    border-top-width: 0px;
+    padding-top: 0px;
+}
+.mobviewdivAlignment{
+    margin-left: 6%;
+}
+a {
+    cursor: pointer;
+    color: white;
+}
+.btn-success1 {
+    color: #fff;
+    background-color: #3C8A2E;
+    border-color: #4cae4c;
+}
+.btn1 {
+    border-radius: 4px;
+    height: 30px;
+}
+.tableheadertext{
+
+}
+.mapTableHeaderTH{
+    
+    text-align: center;
+    padding: 3%;
+    font-size: 12px;
+}
+.mapTableHeaderTD{
+   
+    text-align: center;
+    
+    font-family: myFirstFont;
+    color: #000000;
+    font-size: 12px;
+}
+.table>thead>tr>th {
+    padding: 4px;
+}
+.mapTableFilter{
+    float: right;
+    font-size: 17px;
+    color: green;
+    border: 1px solid green;
+    border-radius: 3px;
+}
+.table > thead > tr > td, .table > tbody > tr > td  {
+    padding: 0px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.checkbox {
+    padding-left: 20px; }
+.checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 5px; }
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out; }
+.checkbox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #555555;
+}
+
+.checkbox input[type="checkbox"]:focus + label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px; }
+
+.checkbox input[type="checkbox"]:checked + label::after {
+    font-family: 'FontAwesome';
+    content: "\f00c"; }
+
+.checkbox-success input[type="checkbox"]:checked + label::before {
+    background-color: #5cb85c;
+    border-color: #5CB85C;
+}
+.checkbox-success input[type="checkbox"]:checked + label::after {
+    color: #fff;
+}
+
+
+
+
+.tdAlign{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.h4style{
+    color: green;
+}
+.modal-content {
+    position: relative;
+    background: none !important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: none;
+    border: none;
+    border-radius: 0px;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow:none;
+}
+.seachicon{
+    left:-2%;
+}
+ #wrapper_1 {
+  
+  
+  float: left;
+  padding-left: 3px;
+    padding-right: 0px;
+ 
+}
+#wrapper_1:after {
+     content: "";
+    background-color: #ffffff;
+    position: absolute;
+    width: 1px;
+    height: 40px;
+    top: 0px;
+    left: 102%;
+    display: block;
+}
+#wrapper_2 {
+ 
+ 
+
+  float: right;
+}
+
+
+
+
+
+
+
+
+.custom-marker.my1 {
+    font-size: 1.5em;
+   /* padding: 7px;*/
+    
+    /*width: 16%;*/
+       margin-top: -6px;
+    margin-left: 0px;
+}
+
+.custom-marker.my1:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: #3C8A2E rgba(60, 138, 46, 0);
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-left: -6px;
+    bottom: -6px;
+    left: 50%;
+}
+
+.custom-marker.my1:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: #7F7F7F transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    margin-left: -6px;
+    bottom: -7px;
+    left: 50%;
+}
+
+.custom-marker.my2 {
+    font-size: 1.5em;
+    padding: 10px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: #7F7F7F solid 1px;
+    background: red;
+    left: 43%;
+    top: 225px;
+}
+
+.custom-marker.my2:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: red transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-left: -6px;
+    bottom: -6px;
+    left: 50%;
+}
+
+.custom-marker.my2:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: #7F7F7F transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    margin-left: -6px;
+    bottom: -7px;
+    left: 50%;
+}
+
+
+.custom-marker:after {
+    content: '';
+    position: absolute;
+    /*border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: #3C8A2E rgba(60, 138, 46, 0);*/
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-left: -6px;
+    bottom: -6px;
+    left: 50%;
+}
+
+.custom-marker:before {
+    content: '';
+    position: absolute;
+   /* border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: #7F7F7F transparent;*/
+    display: block;
+    width: 0;
+    z-index: 0;
+    margin-left: -6px;
+    bottom: -7px;
+    left: 50%;
+}
+
+.custom-marker {
+    font-size: 1.5em;
+    margin: : 10px;
+   /* background: #fff;*/
+    /*-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: #7F7F7F solid 1px;*/
+    padding: 0px;
+    left: 43%;
+    top: 225px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+/*.custom-marker:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: red transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-left: -6px;
+    bottom: -6px;
+    left: 50%;
+}*/
+
+/*.custom-marker:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 7px 6px 0;
+    border-color: #7F7F7F transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    margin-left: -6px;
+    bottom: -7px;
+    left: 50%;
+}
+*/
+
+
+
+
+
+.responsiveDiv2 {
+    /*  font-size: 24pt;*/
+    color: #8c8c8c;
+    font-family: myFirstFont;
+
+
+}
+.searchByName{
+    position: absolute;
+    font-family: mySecondFont;
+    color: #8c8c8c;
+    /* font-size: 14pt;*/
+    padding-top: 5px;
+    padding-left: 15px;
+}
+.responsiveSpan1{
+    display: inline;
+}
+.modal-backdrop.in {
+    opacity: 0.8;
+}
+.directionText{
+    list-style: none ;
+    float: right;
+    margin-right: 37%;
+}
+.alignLeft{
+    left: 0px;
+    top: 35px;
+    text-align: center;
+}
+
+/* The Modal (background) */
+.modal1 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content1 {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%;
+    margin-top: 10%;
+    margin-top: 10%;
+    border: 2px solid green;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.28);
+}
+
+/* The Close Button */
+.close1 {
+    color: #24531C;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    top: -25px;
+    left: 3%;
+}
+
+.close1:hover,
+.close1:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 556px) {
+    .alignLeft{
+        left: -100px;
+        top: 35px;
+        text-align: center;
+    }
+    img {
+    vertical-align: middle;
+    
+}
+.modal-content1{
+	width: 70%;
+}
+
+    .directionText{
+        list-style: none ;
+        float: right;
+        margin-right: 0%;
+    }
+
+    .responsiveDiv {
+        float: left;
+        padding-left: 0px;
+    }
+    .responsiveSpan1{
+        display: none;
+    }
+    .responsiveDiv2 {
+        float: right;
+        padding-right: 2%;
+
+    }
+    .seachicon {
+        float: right;
+        top: -22px;
+    }
+    .responsiveSpan{
+        display: none;
+    }
+    .inputInHeader {
+        height: 50px;
+        width: 100%;
+        font-family: myFirstFont;
+        /* font-size: 22pt;*/
+        color: #000000;
+
+    }
+    #over_map {
+        position: absolute;
+        top: 118px;
+        left: -14px;
+        z-index: 99;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+       /* padding: 10px;*/
+    }
+    #map {
+        width: 100%;
+        height: 458px !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .loginMiandiv{
+        left: 0px;
+        top: 110px;
+    }
+    /*.mapHeight{
+        height: 475px;
+    }*/
+    #over_map-bottom {
+        left: 0px;
+        font-size: 10px;
+    }
+    #over_map-bottomButton{
+        left: 0px;
+        margin-bottom: 0px;
+    }
+    #over_map-bottomButton1 {
+        left: 0px;
+        margin-bottom: 0px;
+    }
+    .mapHeight{
+    display: block;
+    height: 100% ;
+    position: fixed;
+   /* top: 117px;*/
+    left: 0px;
+    width: 100%;
+    overflow: scroll;
+}
+ 
+
+}
+@media only screen and (max-device-width: 320px) {
+    .mapTableHeaderTD{
+    font-size: 12px;
+}
+.mapTableHeaderTH{
+    font-size: 12px;
+
+}.modal-content1{
+	width: 100%;
+}
+.responsiveSpan1{
+        display: none;
+    }
+        
+ }
+
+@media only screen and (max-width: 768) and (min-width: 501px)x) {
+
+    .loginMiandiv{
+        left: 0px;
+        top: 110px;
+    }
+    .modal-content1{
+	width: 50%;
+}
+ img {
+    vertical-align: middle;
+    width: 75%;
+}   
+    .loginMiandiv{
+        left: 0px;
+        top: 110px;
+    }
+
+    .responsiveDiv{
+        float: : left;
+        padding-left: 0px;
+    }
+    .responsiveDiv2 {
+        float: right;
+        padding-right: 2%;
+
+    }
+    .mapHeight{
+    display: block;
+    height: 100% ;
+    position: fixed;
+   /* top: 117px;*/
+    left: 0px;
+    width: 100%;
+    overflow: scroll;
+}
+.responsiveSpan1{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 554px) and (max-width: 768px) {
+
+    .alignLeft{
+        left: -100px;
+        top: 35px;
+        text-align: center;
+    }
+    #landingButton{
+        width: 50%;
+        margin-top: 20px;
+    }
+    .modal-content1{
+	width: 50%;
+}
+
+
+    .directionText{
+        list-style: none ;
+        float: right;
+        margin-right: 0%;
+    }
+
+    .responsiveDiv {
+        float: left;
+    }
+    .responsiveSpan1{
+        display: none;
+    }
+    .responsiveDiv2 {
+        float: right;
+
+    }
+    .seachicon {
+        float: right;
+        top: -20px;
+    }
+    .responsiveSpan{
+        display: none;
+    }
+    .inputInHeader {
+        height: 50px;
+        width: 100%;
+        font-family: myFirstFont;
+        /* font-size: 22pt;*/
+        color: #000000;
+
+    }
+    #over_map {
+        position: absolute;
+        top: 118px;
+        left: -14px;
+        z-index: 99;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        /*padding: 10px;*/
+    }
+    #map {
+        width: 100%;
+        height: 458px !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .loginMiandiv{
+        left: 25%;
+        top: 110px;
+    }
+    /*.mapHeight{
+        height: 475px;
+    }*/
+    #over_map-bottom {
+        left: 0px;
+        font-size: 10px;
+    }
+    #over_map-bottomButton{
+        left: 0px;
+        margin-bottom: 0px;
+    }
+    #over_map-bottomButton1 {
+        left: 0px;
+        margin-bottom: 0px;
+    }
+    .imgTabView{
+        float: left;
+    }
+    .secondDivInHeader{
+        float: none;
+    }
+    .form-control {
+   
+    width: 50%;
+}}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .alignLeft{
+        left: -100px;
+        top: 35px;
+        text-align: center;
+    }
+    #LargeScreen{
+        width: 150px;
+        padding-right: 5px;
+    }
+    .modal-content1{
+	width: 40%;
+}
+
+    .directionText {
+    list-style: none;
+    float: right;
+    margin-right: 0%;
+}
+
+    .responsiveDiv {
+        float: left;
+    }
+    .responsiveSpan1{
+        display: none;
+    }
+    .responsiveDiv2 {
+        float: right;
+
+    }
+    .seachicon {
+        float: right;
+        top: -20px;
+    }
+    .responsiveSpan{
+        display: none;
+    }
+    .inputInHeader {
+        height: 50px;
+        width: 100%;
+        font-family: myFirstFont;
+        /* font-size: 22pt;*/
+        color: #000000;
+
+    }
+    #over_map {
+        position: absolute;
+        top: 118px;
+        left: -14px;
+        z-index: 99;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        /*padding: 10px;*/
+    }
+    #map {
+        width: 100%;
+        height: 458px !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .loginMiandiv{
+        left: 25%;
+        top: 110px;
+    }
+    /*.mapHeight{
+        height: 475px;
+    }*/
+    #over_map-bottom {
+        left: 0px;
+        font-size: 10px;
+    }
+    #over_map-bottomButton{
+        left: 0px;
+        margin-bottom: 0px;
+    }
+    #over_map-bottomButton1 {
+        left: 0px;
+        margin-bottom: 0px;
+    }
+    .imgTabView{
+        float: left;
+    }
+    .secondDivInHeader{
+        float: none;
+    }
+
+}
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+	.modal-content1{
+		width: 25%;
+	}
+}
+
+
+/* firefox CSS styles go here */
+@-moz-document url-prefix() {
+   .inputInHeader{
+    height: 50px;
+    width: 64%;
+    padding-top: 17px;
+    padding-bottom: 5px;
+
+   }
+   @media only screen and (max-width: 544px) {
+    .inputInHeader{
+    width: 100%;
+
+   }
+
+ }
+}
+
+/* IE10+ CSS styles go here */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {     
+
+     .searchByName{
+      left: 18%;
+     }
+
+     @media only screen and (max-width: 544px) {
+   .searchByName{
+      left: 0%;
+     }
+
+}
+
+
+
+}
+

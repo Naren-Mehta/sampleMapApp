@@ -1,0 +1,159 @@
+<div class="container-fluid" style="position: relative;">
+
+
+    <div class="row mainRow">
+
+        <div class="col-sm-6 col-md-6 responsiveDiv" style="text-align: center;">
+            <img src="/img/cust/7.png" style=" margin-right: 13%;" class="imgTabView">
+        </div>
+
+        <div class="col-sm-6  col-md-6 responsiveDiv2" style="float: right;padding-right: 10px;">
+            <li class="directionText">
+                <p class="responsiveSpan1" dir="rtl" style="margin-right: 10px;">Good Morning, {{username}}</p>
+                <span class="dropdown">
+                    <img src="/img/cust/8.png" class="responsiveDiv2 dropdown-toggle" id="menu1" data-toggle="dropdown">
+                     <ul class="dropdown-menu alignLeft" role="menu" aria-labelledby="menu1" style="">
+                     <li> {{username}}</li>
+                      <button ng-click="logout()" class="btn btn-primary btn-lg"
+                              style="background-color: #3C8A2E;   border-color: #3C8A2E;">Logout <span
+                              class="glyphicon glyphicon-off"></span></button>
+                    </ul>
+                  </span>
+            </li>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 secondDivInHeader">
+
+            <form ng-submit="searchCustomerAddress(customerAddress)">
+
+                <span class="searchByName">Search Customer</span>
+                <input class="input-lg inputInHeader" ng-model="customerAddress" id="inputlg" type="select"
+                       placeholder="">
+                <span class="glyphicon glyphicon-search seachicon"
+                      ng-click="searchCustomerAddress(customerAddress)"></span>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="row" style="position: relative;">
+        <ng-map zoom="12" center="{{centerPointInCustomer}}" class="mapHeight" default-style="false" min-zoom="11">
+
+            <div ng-if="search">
+
+                <custom-marker position="{{customerLocationInCustomer}}" ng-repeat="cm in customMarkers">
+
+                <div class="{{cm.class}}"  style="color:white">
+                        <div class="row" id="truckIcon">
+                        <div class="col-md-9 col-sm-9 col-xs-9 " id="wrapper_1">
+                            <h6 class="hrStyleInTable">
+                           {{etaInCustomer.reason_code == 'Truck on the way' ? 'ETA' :etaInCustomer.reason_code}}</h6>
+                            <p style="    white-space: nowrap;">
+                                {{getEtaTimeOrServicedTime(etaInCustomer)   }} </p>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-3 " class="ImageOnMap1" id="wrapper_2" style="padding-left: 9px;">
+                            
+                               <img src="{{cm.img}}" class="TRUCKimgStyle" style="width: 130%;margin-top: 0%;" />
+                               
+                        </div>
+                        <br>
+
+                    </div>
+                </div>
+
+
+                </custom-marker>
+                <marker position="{{customerLocationInCustomer}}" icon="{{image}}"></marker>
+
+                <custom-marker position="{{truckLocationInCustomer}}" ng-if="truckLocationInCustomer">
+                    <div>
+                        <img src="/img/cust/4.png" style="height: 50px;width: 30px;"/>
+                    </div>
+                </custom-marker>
+
+                <marker position="{{truckLocationInCustomer}}" ng-if="truckLocationInCustomer"
+                       icon="{{image}}"></marker>
+            </div>
+        </ng-map>
+    </div>
+
+    <div class="col-md-2 " id="over_map" style="" ng-if="search">
+        <div class="col-md-12" style="padding-left: 0px;  padding-right: 0px;">
+            <table border="1" class="Borderstyle">
+                <tr>
+                    <td class="Borderstyle1">
+                        <div class="col-md-2 tdAlign" style="text-align: center;">
+                            <img src="/img/cust/6.png" style="  width: 35px;height: 100%; margin-left: 10px;margin-right: 10px">
+                        </div>
+                    </td>
+                    <td class="Borderstyle1">
+                        <div class="col-md-12">
+                            <h6 class="hrStyleInTable">Today Staus</h6>
+                            <h4 class="h4style">{{etaInCustomer.reason_code}} </h4>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="Borderstyle1">
+                        <div class="col-md-2 tdAlign" style="text-align: center;">
+                            <img src="/img/cust/5.png" style=" height: 100%;    margin-left: 6px;    margin-right: 4px;">
+                        </div>
+                    </td>
+                    <td class="Borderstyle1">
+                        <div class="col-md-12">
+                            <h6 class="hrStyleInTable">Upcoming Service</h6>
+                            <h4 class="h4style">{{upcoming_schedule}} </h4>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="spinner-overlay" ng-show="loaderInCustomer"
+         style="padding-bottom: 20px">
+        <div class="loader-inner"><i class="fa fa-spin fa-circle-o-notch"></i> Loading...
+        </div>
+    </div>
+
+
+</div>
+
+<style>
+    .loader-inner {
+        position: absolute;
+        top: 0%;
+        right: 0;
+        bottom: 0;
+        left: 0%;
+        z-index: 99999;
+        margin: auto;
+        width: 100%;
+        height: 40px;
+
+    }
+
+    .spinner-overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        right: 0;
+        bottom: 0;
+        left: 0%;
+        z-index: 9999;
+        margin: auto;
+        font-size: 40px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #7ab800;
+        text-align: center;
+        font-size: 40px;
+
+    }
+</style>
+

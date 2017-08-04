@@ -1,0 +1,292 @@
+
+    <div class="container-fluid" style="position: relative;" ng-init="getCenter()">
+        <div class="row mainRow">
+
+
+            <div class="col-sm-6 col-md-6 responsiveDiv" style="text-align: center;">
+                <img src="/img/cust/7.png" style=" margin-right: 13%;" class="imgTabView">
+            </div>
+
+            <div class="col-sm-6  col-md-6 responsiveDiv2" style="float: right;padding-right: 10px;">
+                <li class="directionText">
+                    <p class="responsiveSpan1" dir="rtl" style="margin-right: 10px;">Good Morning, {{username}}</p>
+                    <span class="dropdown">
+                        <img src="/img/cust/8.png" class="responsiveDiv2 dropdown-toggle" id="menu1" data-toggle="dropdown">
+                         <ul class="dropdown-menu alignLeft" role="menu" aria-labelledby="menu1" style="">
+                         <li> Employee</li>
+                          <button ng-click="logout()" class="btn btn-primary btn-lg"
+                                  style="background-color: #3C8A2E;   border-color: #3C8A2E;">Logout <span
+                                  class="glyphicon glyphicon-off"></span></button>
+                        </ul>
+                      </span>
+                </li>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 secondDivInHeader" >
+                <form ng-submit="searchCustomerAddress(customerAddress);" 
+
+                         >
+                    <span class="searchByName">Search Customer</span>
+                    <input class="input-lg inputInHeader" ng-model="customerAddress" id="inputlg" type="select"
+                           placeholder="">
+                    <span class="glyphicon glyphicon-search seachicon" ng-click="searchCustomerAddress(customerAddress)"  data-target="#myModal"
+                          id="popupAlertBox" ></span>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            <ng-map zoom="10" center="{{centerPoint}}" class="mapHeight" on-zoom_changed="setZoomFun()">
+
+                <div ng-if="searchEmployee">
+
+
+                    <custom-marker position="{{truckLocation}}" ng-if="truckLocation">
+                        <div>
+                            <img src="/img/cust/4.png" style="height: 50px;width: 30px;"/>
+                        </div>
+                    </custom-marker>
+
+                    <marker position="{{truckLocation}}" ng-if="truckLocation"
+                            icon="{{image}}"></marker>
+
+
+                    <custom-marker ng-repeat="cust in customerListCompleted" ng-if="customerListCompleted"
+                                   position="{{cust.customer_location.latitude}} , {{cust.customer_location.longitude}}">
+                        <div>
+                            <img src=" {{cust.image}}" style="height: 100%;width: 100%;"/>
+                        </div>
+                    </custom-marker>
+
+                    <directions ng-if="refresh" polyline-options='{strokeColor: "green"}'
+                                suppress-markers="true",
+                                panel="directions-panel"
+                                travel-mode="DRIVING"
+                                waypoints="{{customerListCompletedWaypoints}}"
+                                origin="{{customerListCompletedOrigin}}"
+                                destination="{{customerListCompletedDestination}}" 
+                                id = "completedLine">
+                    </directions>
+
+
+                    <custom-marker ng-repeat="cust in customerListPending" ng-if="customerListPending"
+                                   position="{{cust.customer_location.latitude}} , {{cust.customer_location.longitude}}">
+                        <div>
+                            <img src=" {{cust.image}}" style="height: 100%;width: 100%;"/>
+                        </div>
+                    </custom-marker>
+
+                   <directions ng-if="refresh" polyline-options='{strokeColor: "red"}'
+                               suppress-markers="true",
+                                panel="directions-panel"
+                                travel-mode="DRIVING"
+                                waypoints="{{customerListPendingWaypoints}}"
+                                origin="{{customerListPendingOrigin}}"
+                                destination="{{customerListPendingDestination}}"
+                               id = "pendingLine" >
+                    </directions>
+
+
+
+                    <custom-marker
+                            position="{{currentCustomer.customer_location.latitude +',' + currentCustomer.customer_location.longitude}}"
+                            ng-repeat="cm in customMarkers">
+
+
+
+
+                            <div class="{{cm.class}}"  style="color:white">
+                                <div class="row" id="truckIcon">
+                                <div class="col-md-9 col-sm-9 col-xs-9 " id="wrapper_1">
+                                    <h6 class="hrStyleInTable">
+                                    {{currentCustomer.ETA.reason_code == 'ComputedETA' ? 'ETA' :etaInCustomer.reason_code}}</h6>
+
+                                    <p style="    white-space: nowrap;">
+                                        {{getEtaTimeOrServicedTime(currentCustomer.ETA)}}</p>
+                                </div>
+
+                                <div class="col-md-3 col-sm-3 col-xs-3 " class="ImageOnMap1" id="wrapper_2" ng-if="searchEmployee">
+
+                                       <img src="{{cm.img}}" class="TRUCKimgStyle" />
+                                       <span class="TRUCKimgStyle1">{{currentCustomerSequence}}</span>
+                                </div>
+                                <br>
+
+                            </div>
+                        </div>
+                    </custom-marker>
+
+                    <marker position="{{currentCustomer.customer_location.latitude +',' + currentCustomer.customer_location.longitude}}"
+                            icon="{{image}}"></marker>
+
+
+                </div>
+
+
+            </ng-map>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-lg-2" id="over_map" ng-if="searchEmployee">
+            <div class="col-md-12 " style="padding-left: 0px;  padding-right: 0px;">
+                <table border="1" class="Borderstyle">
+                    <tr>
+                        <td class="Borderstyle1">
+                            <div class="col-md-2 tdAlign" style="text-align: center;">
+                                <img src="/img/emp/1.png" style="  width: 35px;height: 100%; margin-left: 5px;margin-right: 10px">
+                            </div>
+                        </td>
+                        <td class="Borderstyle1">
+                            <div class="col-md-12 col-lg-12"  style="width: 150px;padding-right: 5px;">
+                                <!--<h6 class="hrStyleInTable">Currently Serving{{currentCustomerServiceStatus}}</h6>-->
+                                <h6 class="hrStyleInTable">Searched Customer Status </h6>
+                                <h4 class="h4style" >{{currentCustomerServiceStatus}}</h4>
+                              <!--<h4 class="h4style" ng-if="currentCustomerServiceStatus">{{currentCustomerServiceStatus}}</h4>-->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Borderstyle1">
+                            <div class="col-md-2 tdAlign" class="col-md-2 tdAlign" style="text-align: center;">
+                                <img src="/img/emp/2.png" style="  width: 35px;height: 100%; margin-left: 5px;margin-right: 10px">
+                            </div>
+                        </td>
+                        <td class="Borderstyle1">
+                            <div class="col-md-12 col-lg-12" style="width: 150px;padding-right: 5px;">
+                                <h6 class="hrStyleInTable">Current Route Completion</h6>
+                                <h4 class="h4style">{{averageCompletionPercentage}}%</h4>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <dir-pagination-controls  id="over_map-bottomPagination" class="  hidden-sm  hidden-xs hidden-md visible-lg"></dir-pagination-controls>
+
+        <div class="col-md-8  hidden-sm  hidden-xs hidden-md visible-lg table-responsive "
+             id="over_map-bottom"
+             ng-if="searchEmployee"  >
+
+
+
+        <table class="table table-bordered" ng-if="searchEmployee2" 
+               style="    margin-bottom: 0px;margin: 0 auto;width: 100%;background: white; font-size: 12px; " id="removeTable">
+                <tr>
+                <thead>
+                <td colspan="10" class="tableheadertext" style=" border-right-color: white;    padding-left: 1%;">
+                    <h5 class="RouteTableHeaderText">Current Route Stops </h5> 
+                <td style="padding: 10px;">  
+                     <div ng-show="!showPlus_" ng-click="showCurrentCustomer()" style="display: inline; float: right;
+                    padding-left: 17%;">                    
+                    <span class="glyphicon glyphicon-minus"></span>   </div>
+               
+                    <span class="glyphicon glyphicon-filter mapTableFilter"></span>
+                </td>
+                </thead>
+            </tr>
+            <thead >
+            <tr class="currentRouteStopsHeader">
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Sequence No</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">MAS Unique Id</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Service Unique Id</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Service Code</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Customer</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Ticket Number</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;"> Ticket Type</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Load Type</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Exception Type</th>
+                <th class="mapTableHeaderTH" style="font-size: 11px;">Service Complition Time</th>
+                <th class="mapTableHeaderTH"  style="font-size: 11px;">Status</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr dir-paginate="customer in customerList | itemsPerPage: 5" ng-class="getRowClass(customer)">
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customerList.length - $index}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.masUnique}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.svc_line_id}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.svccd}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.customer_name}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.tktnum}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.tkttype}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.ticket_load_type}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.excp_cd}}</td>
+                <td class="mapTableHeaderTD" style="font-size: 11px;">{{customer.ETA.etaDateTime}}</td>               
+                <td class="mapTableHeaderTD" 
+                    style="border-right-color: white;border-left-color: white;margin-left: 15%;font-size: 11px;"
+                    ng-class="getRowClass(customer)">                
+                    <label for="inlineCheckbox1" style="font-weight: 100;">{{customer.ETA.reason_text}} </label>
+               
+                    <div ng-if="customer.ETA.reason_code == 'AlreadyServiced'" style="    display: inline;">
+                       <div class="checkbox checkbox-success checkbox-inline" style="float: right;margin-top: 0px;">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1" checked="">
+                            <label for="inlineCheckbox1"> </label>
+                        </div>                            
+                    </div>
+                </td>
+
+
+                    </tr>
+
+                </tbody>
+
+
+        </table> 
+              
+    </div>
+    <div class="col-md-8  hidden-sm  hidden-xs hidden-md visible-lg table-responsive "
+         id="over_map-bottom"
+         ng-if="searchEmployee1"  >
+        <table class="table table-bordered"
+               style="    margin-bottom: 0px;margin: 0 auto;width: 100%;background: white; font-size: 12px; " id="removeTable">
+
+            <tr>
+                <thead>
+                <td colspan="10" class="tableheadertext" style=" border-right-color: white;    padding-left: 1%;">
+                    <h5 class="RouteTableHeaderText">Current Route Stops </h5> 
+                <td style="padding: 10px;">               
+                     
+                    <div ng-hide="!showPlus_" ng-click="hideCurrentCustomer()" style="display: inline;    float: right;
+    padding-left: 5%;">                    
+                        <span class="glyphicon glyphicon-unchecked" style="    color: #3C8A2E; padding-top: 4px;"></span>                    
+                    </div>
+                    <span class="glyphicon glyphicon-filter mapTableFilter"></span>
+                </td>
+                </thead>
+            </tr></td></thead></tr>
+        </table></div>
+
+
+        </div>
+
+
+        <div class="col-sm-12 col-xs-12 col-md-12  visible-sm  visible-xs  visible-md hidden-lg "
+             id="over_map-bottomSuccessButton" style="" ng-if="searchEmployee">
+            <a href="#!employee_mob" type="button" class="btn btn-success btn-success1 btn1"
+               style="float: right;padding-top: 4px;">Table View</a>
+        </div>  
+
+
+              <div class="alertbb col-sm-12 col-xs-12 col-md-12 col-lg-12 modal1 myModal" id="demo1" >  
+                    <div class="modal-content1" >
+                        <span class="close1"  >&times;</span>
+                       <h5 id="demo" > </h5>
+                    </div>
+                </div>  
+        </div>
+
+        <div class="col-sm-12 col-xs-12 col-md-12  visible-sm  visible-xs  visible-md hidden-lg table-responsive "
+             id="over_map-bottomButton" style="" ng-if="searchEmployee">
+            <table class="table table-bordered" style="    margin-bottom: 0px;">
+                <tr>
+                    <thead>
+                    <td class="tableheadertext" style="padding: 5px; border-right-color: white;">
+                        <strong>Current Route Stops</strong></td>
+                    </thead>
+                </tr>
+            </table>
+        </div>

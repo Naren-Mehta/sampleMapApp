@@ -1,0 +1,107 @@
+<div class="container-fluid" style="position: relative;" ng-init="open()">
+
+
+    <div class="row mainRow">
+
+        <div class="col-sm-6 col-md-6 responsiveDiv" style="text-align: center;">
+            <img src="/img/cust/7.png" style="margin-right: 75px;">
+        </div>
+
+        <div class="col-sm-6  col-md-6 responsiveDiv2" style="text-align: center;">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 secondDivInHeader">
+            <form>
+                <input class="input-lg inputInHeader" ng-model="customerAddress" id="inputlg" type="select"
+                       placeholder="Search by Address">
+                <span class="glyphicon glyphicon-search seachicon"
+                      ng-click="searcCustomerAddress(customerAddress)"></span>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="row">
+        <ng-map zoom="10" center="{{center}}" class="mapHeight" >
+
+        </ng-map>
+
+        <div class="row" style="background: green;color:white; display: none ">
+            <div id="sitehtmlcontentTruck">
+                <div class="col-md-7" style="background: green;color:white; ">
+                    <h6>Scheduled Today</h6>
+                    <h2>4:30PM</h2>
+                </div>
+
+                <div class="col-md-5" style="background: green;color:white;  ">
+                    <img src="/img/cust/1.png" style="float: right;">
+                    <span style="background: green;color:white; font-size: 40px; " class="verticalLine">
+                </span>
+                </div>
+                <!-- <hr width="1" size="5" style="background: white;color:white; height: 30px; ">  -->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 col-md-offset-2" id="over_map"
+         style="padding-left: 0px;padding-right: 0px;padding-bottom: 0px;border-top-width: 0px;padding-top: 0px;">
+
+    </div>
+
+
+    <script type="text/ng-template" id="loginView.html">
+        <div class="container-fluid loginMain" style="margin: 0 auto;background: none;" id="popup">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6 loginMiandiv" style="    ">
+                <img src="/img/logo.png" class="glyphicon" style="    right: -40px;">
+                <form name="form" role="form">
+
+                    <div class="alert alert-danger alert-dismissible" ng-if="loginErrorMsg"
+                         style="margin-top: 5%;margin-bottom: 1%;">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p>{{loginErrorMsg}}</p>
+                    </div>
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+
+                        <!-- <label for="username">Username</label> -->
+                        <!-- <span class="glyphicon glyphicon-user" style="color:white;top: 27px;left: 10px;"></span> -->
+                        <img src="/img/email.png" style="color:white;top: 27px;left: 10px;" class="glyphicon">
+                        <input type="text" name="username" id="username" class="form-control" ng-model="username"
+                               required
+                               value="prema"/>
+                        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                        <!-- <label for="password">Password</label> -->
+                        <!-- <span class="glyphicon glyphicon-align-justify" style="color:white;top: 27px;left: 10px;"></span> -->
+                        <img src="/img/password.png" style="top: 27px;left: 10px;" class="glyphicon">
+                        <input type="password" name="password" id="password" class="password form-control"
+                               ng-model="password" required/>
+                        <!-- <span id="showHide" class="eye glyphicon glyphicon-eye-open"></span> -->
+                        <img src="/img/eye.png" id="showHide" class="glyphicon eye" style="">
+                        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" ng-disabled="form.$invalid || dataLoading" ng-click="login(username,password)"
+                                class="btn btn-success" id="landingButton">Sign in
+                        </button>
+                        <br>
+                        <img ng-if="dataLoading"
+                             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                        <a href=" " class="btn btn-link" style="float:right;color: white;">Forgot
+                            Password? </a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </script>
+
+
+</div>

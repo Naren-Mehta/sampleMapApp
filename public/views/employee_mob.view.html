@@ -1,0 +1,92 @@
+<div class="container-fluid" style="position: relative;">
+
+    <div class="row">
+        <map zoom="14" center="center" class="mapHeight" style="height:70px">
+        </map>
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-12  visible-sm  visible-xs  visible-md hidden-lg "
+         id="over_map-topSuccessButton">
+        <a href="#!employee" type="button" class="btn btn-success btn-success1 btn1"
+           style="float: right;padding-top: 4px;">Table View</a>
+    </div>
+</div>
+
+<div class="col-sm-12 col-xs-12 col-md-12  visible-sm  visible-xs  visible-md hidden-lg table-responsive "
+     id="over_map-bottomButton1" style="" ng-if="search">
+    <table class="table table-bordered" style="    margin-bottom: 0px;">
+        <tr>
+            <thead>
+            <td colspan="2" class="tableheadertext" style="padding: 8px; border-right-color: white;">
+                <strong>Current Route Stops</strong></td>
+            <td style="padding: 10px;"><span class="glyphicon glyphicon-filter mapTableFilter"></span>
+            </td>
+            </thead>
+        </tr>
+
+        <thead>
+        <tr style="background: #4C4A4A;color: white;">
+            <th class="mapTableHeaderTH" style="white-space: normal;">Sequence No</th>
+            <th class="mapTableHeaderTH" style="white-space: normal;">Customer</th>
+            <th class="mapTableHeaderTH" style="white-space: normal;">Status</th>
+        </tr>
+        </thead>
+
+
+        <tbody ng-repeat='customer in customerList' >
+        <tr>
+            <td class="mapTableHeaderTD" style="border-right-color: white;border-left-color: white;white-space: normal;" ng-class="getRowClass(customer)" >
+
+                <div ng-show="!showPlus_{{$index}}" ng-click="showCurrentCustomer($index)">
+                    <span class="glyphicon glyphicon-plus"></span>{{customerList.length - $index}}
+                </div>
+                <div ng-hide="!showPlus_{{$index}}" ng-click="hideCurrentCustomer($index)">
+                    <span class="glyphicon glyphicon-minus"></span>{{customerList.length - $index}}
+                </div>
+            </td>
+
+            <td class="mapTableHeaderTD" style="border-right-color: white;border-left-color: white;margin-left: 15%;white-space: normal;" ng-class="getRowClass(customer)">
+                {{customer.customer_name}}
+            </td>
+            <td class="mapTableHeaderTD" style="border-right-color: white;border-left-color: white;margin-left: 15%;white-space: normal;" ng-class="getRowClass(customer)">
+                
+                    <label for="inlineCheckbox1" style="font-weight: 100;">{{customer.ETA.reason_text}} </label>
+               
+                <div ng-if="customer.ETA.reason_code == 'AlreadyServiced'" style="    display: inline;">
+                   <div class="checkbox checkbox-success checkbox-inline" style="float: right;    margin-top: 0px;">                                                               
+                        <img src="/img/check-box.png" id="inlineCheckbox1" for="inlineCheckbox1" style="    width: 60%;" >
+                    </div>
+                        
+                </div>
+
+            </td>
+        </tr>
+
+        <tr ng-show="show_{{$index}}">
+            <td style="width: 30%;border-color: white;" colspan="3">
+                <div class="mobviewdivAlignment">
+                    <div><h5 class="mobviewHRStyle"><strong>MAS Unique Id </strong></h5><h6 class="mobviewHRStyle">
+                        {{customer.masUnique }} </h6></div>
+                    <div><h5 class="mobviewHRStyle"><strong>Service Unique Id </strong></h5><h6 class="mobviewHRStyle">
+                        {{customer.svc_line_id }} </h6></div>
+                    <div><h5 class="mobviewHRStyle"><strong>Service Code </strong></h5><h6 class="mobviewHRStyle">
+                        {{customer.svccd }} </h6></div>
+                    <div><h5 class="mobviewHRStyle"><strong>Ticket Number </strong></h5><h6 class="mobviewHRStyle">
+                        {{customer.tktnum }}</h6></div>
+                    <div><h5 class="mobviewHRStyle"><strong>Ticket Type </strong></h5><h6 class="mobviewHRStyle">
+                        {{customer.tkttype }}</h6></div>
+                    <div><h5 class="mobviewHRStyle"><strong>Load Type </strong></h5><h6 class="mobviewHRStyle">
+                        {{customer.ticket_load_type }}</h6></div>
+                    <div><h5 class="mobviewHRStyle"><strong>Exception Type </strong></h5><h6 class="mobviewHRStyle">
+                        {{customer.excp_cd }}</h6></div>
+                    <div><h5 class="mobviewHRStyle"><strong>Service Complition Time </strong></h5><h6
+                            class="mobviewHRStyle">
+                        {{customer.ETA.reason_text }}</h6></div>
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</div>
+
